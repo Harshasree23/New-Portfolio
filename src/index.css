@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Typography */
+  --font-display: "Google Sans Flex", sans-serif;
+  --font-family: "Google Sans Flex", sans-serif;
+
+  /* Default (Dark) Background Colors */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #121212;
+  --color-bg-tertiary: #1A1A1A;
+  
+  /* Default (Dark) Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-muted: rgba(255, 255, 255, 0.4);
+  --color-text-inverse: #000000;
+
+  /* Accents */
+  --color-accent-green: #39FF14;
+  --color-accent-pink: #FF007F;
+  --color-accent-yellow: #FFFF00;
+  --color-accent-purple: #9D00FF;
+
+  /* Default (Dark) Effects & Borders */
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-glass-bg: rgba(20, 20, 20, 0.6);
+  --blur-glass: 24px;
+
+  /* Light Theme Variables (Used for overrides below) */
+  --color-bg-primary-light: #F8F8F8;
+  --color-bg-secondary-light: #FFFFFF;
+  --color-bg-tertiary-light: #F0F0F3;
+  --color-text-primary-light: #101828;
+  --color-text-secondary-light: rgba(17, 24, 39, 0.75);
+  --color-text-muted-light: rgba(17, 24, 39, 0.45);
+  --color-text-inverse-light: #FFFFFF;
+  --color-border-light-light: rgba(17, 24, 39, 0.08);
+  --color-glass-bg-light: rgba(255, 255, 255, 0.7);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+}
+
+@layer base {
+  
+  html{
+    @apply custom-scrollbar;
+  }
+  /* Light Theme Overrides */
+  html.light {
+    color-scheme: light;
+    --color-bg-primary: var(--color-bg-primary-light);
+    --color-bg-secondary: var(--color-bg-secondary-light);
+    --color-bg-tertiary: var(--color-bg-tertiary-light);
+
+    --color-text-primary: var(--color-text-primary-light);
+    --color-text-secondary: var(--color-text-secondary-light);
+    --color-text-muted: var(--color-text-muted-light);
+    --color-text-inverse: var(--color-text-inverse-light);
+
+    --color-border-light: var(--color-border-light-light);
+    --color-glass-bg: var(--color-glass-bg-light);
+  }
+
+  /* Explicit Dark Theme Declaration */
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+@utility custom-scrollbar {
+  /* Use a variable for the thumb color */
+  :root {
+    --scroll-thumb-color: var(--color-accent-green);
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb-color) var(--color-bg-primary);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    /* Reference the dynamic variable */
+    background-color: var(--scroll-thumb-color);
+    border-radius: 9999px;
+    border: 2px solid var(--color-bg-primary);
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    filter: brightness(1.2); /* Slight hover effect */
+  }
+}
+
+@utility noise-grain {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* This creates the grain texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.15; /* Adjust intensity here (0.05 to 0.2 recommended) */
+    z-index: 1;
+  }
+}
+
+@utility animate-gradient-slow {
+  animation: gradient-move 8s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
