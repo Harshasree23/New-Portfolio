@@ -13,6 +13,7 @@ import useScrollbarColor from './components/useScrollBarColor';
 
 import { supabase } from './supaBase';
 import { ThemeProvider } from './components/ThemeContext';
+import GeneratingLoader from './components/Loader';
 
 // MainLayout now accepts the fetched data as props
 function MainLayout({ skills, experience, projects }) {
@@ -78,7 +79,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div className="loading-spinner">Loading portfolio...</div>; // Simple loading state
+    return <GeneratingLoader />
   }
 
   return (
