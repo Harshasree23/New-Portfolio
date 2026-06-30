@@ -69,14 +69,16 @@ const ProjectsSection = ({ data }) => {
       id="projects"
       className="relative max-w-[1400px] mx-auto py-[clamp(5rem,10vw,10rem)] px-[clamp(1rem,5vw,4rem)]"
     >
+      <h2 className="font-display  tracking-tighter text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)] mb-12 transition-colors duration-700">
+        Featured Projects
+      </h2>
       <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-start">
-        
+          
         {/* Left Sidebar: Sticky Navigator & Navigation Triggers */}
         <div className="hidden md:flex flex-col md:w-48 lg:w-64 sticky top-[20vh] h-[75vh] justify-between z-40">
           
           {/* Active Sticky Stack Tracker */}
           <div className="flex flex-col gap-6">
-            <h4 className="text-sm uppercase tracking-widest text-[var(--color-text-muted)] mb-4 font-semibold">Featured Work</h4>
             
             {featuredProjects.map((p, index) => {
               const isActive = activeProjectIdx === index;

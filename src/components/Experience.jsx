@@ -62,7 +62,7 @@ const Experience = ({ data }) => {
       <div className="relative z-20 max-w-[1400px] mx-auto px-[clamp(1rem,4vw,4rem)]">
 
         {/* Section Header */}
-        <h2 className="font-display font-extrabold tracking-tighter text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)] mb-12 transition-colors duration-700">
+        <h2 className="font-display  tracking-tighter text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)] mb-12 transition-colors duration-700">
           Experience
         </h2>
 

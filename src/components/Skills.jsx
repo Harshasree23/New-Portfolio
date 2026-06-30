@@ -4,6 +4,9 @@ const Skills = ({ data }) => {
 
   return (
     <section id="skills" className="px-5 max-w-[1400px] mx-auto py-20">
+        <h2 className="font-display  tracking-tighter text-[clamp(2.5rem,5vw,4.5rem)] text-[var(--color-text-primary)] mb-12 transition-colors duration-700">
+          Skills
+        </h2>
       <div>
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

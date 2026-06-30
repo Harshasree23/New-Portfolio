@@ -24,25 +24,29 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="h-auto mt-40 overflow-visible md:overflow-hidden 
+      className="h-auto mt-30 overflow-visible md:overflow-hidden 
       flex flex-col justify-end pt-16 md:pt-0 pb-4 md:pb-8" >
       <div className="max-w-[1400px] mx-auto px-5 md:px-container flex-1 flex flex-col justify-between w-full">
 
-        <div className="flex-1 flex flex-col justify-end">
+        <div className="flex-1 flex flex-col">
           {/* Top row: heading left, nav + social right */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-8 mb-10">
+          <div className="flex flex-col items-center md:flex-row md:items-end md:justify-between gap-10 md:gap-8 mb-10">
 
             {/* Left: Massive Heading */}
             <div className="font-display text-[clamp(3rem,12vw,10rem)] 
-            leading-[0.9] text-primary tracking-tighter">
+              leading-[0.9] text-primary tracking-tighter flex flex-col items-end gap-5">
               Get in touch
+              <div className='font-display text-2xl md:text-5xl
+              leading-[0.9] text-primary tracking-tighter'>
+                sreeharsha2358@gmail.com
+              </div>
             </div>
 
             {/* Right: Nav + Social, side by side */}
-            <div className="flex gap-10 md:gap-20 shrink-0">
+            <div className="flex gap-10 md:gap-20 shrink-0 w-full sm:w-fit justify-around">
               {/* Nav */}
               <div>
-                <div className="text-[0.65rem] md:text-xs text-muted uppercase tracking-widest mb-4">
+                <div className="text-[0.65rem] md:text-xs text-gray-500 uppercase tracking-widest mb-4">
                   Navigate
                 </div>
                 <ul className="flex flex-col gap-3">
@@ -67,7 +71,7 @@ const Contact = () => {
 
               {/* Social */}
               <div>
-                <div className="text-[0.65rem] md:text-xs text-muted uppercase tracking-widest mb-4">
+                <div className="text-[0.65rem] md:text-xs text-gray-500 uppercase tracking-widest mb-4">
                   Find me
                 </div>
                 <ul className="flex flex-col gap-3">
@@ -102,33 +106,47 @@ const Contact = () => {
             </span>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-pill,9999px)] border border-[var(--color-border-light)] bg-[var(--color-glass-bg)]">
               <img src={ReactIcon} className="h-4 w-4" alt="React" />
-              <span className="text-xs text-secondary tracking-wide">React</span>
+              <span className="text-xs hidden md:block text-secondary tracking-wide">React</span>
             </span>
             <span className="text-secondary text-xs">+</span>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-pill,9999px)] border border-[var(--color-border-light)] bg-[var(--color-glass-bg)]">
               <img src={SupabaseIcon} className="h-4 w-4" alt="Supabase" />
-              <span className="text-xs text-secondary tracking-wide">Supabase</span>
+              <span className="text-xs hidden md:block text-secondary tracking-wide">Supabase</span>
             </span>
             <span className="text-secondary text-xs">+</span>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-pill,9999px)] border border-[var(--color-border-light)] bg-[var(--color-glass-bg)]">
               <img src={HeartIcon} className="h-4 w-4" alt="Love" />
-              <span className="text-xs text-secondary tracking-wide">Love</span>
+              <span className="text-xs hidden md:block text-secondary tracking-wide">Love</span>
             </span>
           </div>
         </div>
 
         {/*Footer Image Banner */}
-        <div className="shrink-0 hidden md:block">
-          <div className="w-full h-[clamp(110px,25vh,250px)] overflow-hidden flex items-center justify-center px-6
-            md:rounded-xl
-            bg-gradient-to-r from-accent-green via-accent-pink via-accent-violet to-accent-purple 
-            animate-gradient-slow bg-[length:300%_300%] noise-grain">
+        <div className="shrink-0 mt-10">
+          <div className="w-full h-[clamp(110px,10vh,250px)] overflow-hidden flex items-center justify-center px-6
+            md:rounded-xl bg-neutral-950 noise-grain">
+            <div className="relative z-20 text-center">
+              
+              <span 
+                className="absolute inset-0 blur-2xl opacity-80 select-none
+                  bg-gradient-to-r from-accent-green via-accent-pink via-accent-violet to-accent-purple 
+                  animate-gradient-slow bg-[length:300%_300%] bg-clip-text text-transparent
+                  text-[clamp(1.5rem,6vw,3.75rem)] leading-tight uppercase tracking-tighter"
+                aria-hidden="true"
+              >
+                Munimadugu Sree Harsha
+              </span>
 
-            {/* Added relative z-20 to ensure text stays above the grain overlay */}
-            <span className="relative z-20 text-black/40 font-mono text-center
-              text-[clamp(1.5rem,6vw,3.75rem)] leading-tight uppercase tracking-tighter font-bold">
-              Munimadugu Sree Harsha
-            </span>
+              <span 
+                className="relative 
+                  bg-gradient-to-r from-accent-green via-accent-pink via-accent-violet to-accent-purple 
+                  animate-gradient-slow bg-[length:300%_300%] bg-clip-text text-transparent
+                  text-[clamp(1.5rem,6vw,3.75rem)] leading-tight uppercase tracking-tighter"
+              >
+                Munimadugu Sree Harsha
+              </span>
+
+            </div>
           </div>
         </div>
 
