@@ -68,19 +68,22 @@ const ProjectsPage = ({ data }) => {
   }, [searchQuery, selectedCategory, baseProjects]);
 
   return (
-    <section className="relative min-h-screen pt-32 pb-24 bg-[var(--color-bg-primary)] transition-colors duration-700 isolate">
+    <section className="relative min-h-screen pt-32 pb-24 bg-[var(--color-bg-primary)] 
+    transition-colors duration-700 isolate">
       <div className="max-w-[1400px] mx-auto px-[clamp(1rem,4vw,4rem)]">
         
         {/* Header Section */}
         <div className="mb-12">
-          <h1 className="font-display font-extrabold tracking-tighter leading-[1.05] text-[clamp(3rem,8vw,4.5rem)] text-[var(--color-text-primary)] mb-8">
+          <h1 className="font-display font-extrabold tracking-tighter leading-[1.05] 
+          text-[clamp(3rem,8vw,4.5rem)] text-[var(--color-text-primary)] mb-8">
             All Projects
           </h1>
 
           {/* Search & Filter Command Center */}
           {/* Search & Filter Command Center */}
           <div 
-            className="sticky top-24 z-40 flex flex-col lg:flex-row items-center justify-between gap-4 p-4 md:p-6 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
+            className="sticky top-24 z-40 flex flex-col lg:flex-row items-center 
+            justify-between gap-4 p-4 md:p-6 rounded-[var(--radius-lg)] border border-[var(--color-border-light)] shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
             style={{
               backgroundColor: 'color-mix(in srgb, var(--color-glass-bg) 80%, transparent)',
               backdropFilter: 'blur(var(--blur-glass))',
@@ -136,7 +139,7 @@ const ProjectsPage = ({ data }) => {
         )}
 
         {/* --- COMPACT 2-COLUMN GRID LAYOUT --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
           {filteredProjects.map((project, index) => {
             const primaryImage = getPrimaryImage(project.images, project.id);
             const statusConfig = getStatusConfig(project.status);
@@ -151,7 +154,7 @@ const ProjectsPage = ({ data }) => {
               <div
                 key={project.id}
                 onClick={() => setSelectedProject({ ...project, computedColor: dynamicColor })}
-                className="group relative w-full h-[320px] sm:h-[400px] rounded-[var(--radius-xl)] p-[2px] shadow-[0_8px_24px_rgba(0,0,0,0.05)] cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+                className="group relative w-full h-[300px] sm:h-[350px] rounded-[var(--radius-xl)] p-[2px] shadow-[0_8px_24px_rgba(0,0,0,0.05)] cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
                 style={{ background: dynamicColor }}
               >
                 <div className="relative w-full h-full bg-[var(--color-bg-primary)] rounded-[calc(var(--radius-xl)-2px)] overflow-hidden flex flex-col justify-end">
@@ -192,16 +195,16 @@ const ProjectsPage = ({ data }) => {
                     
                     <div className="relative z-10">
                       <div className="flex flex-wrap gap-2 mb-2">
-                         {categoryTags.slice(0, 2).map((tag, i) => (
-                           <span key={i} className="text-[10px] font-bold text-white/80 uppercase tracking-widest drop-shadow-sm">{tag}</span>
-                         ))}
+                          {categoryTags.slice(0, 2).map((tag, i) => (
+                            <span key={i} className="text-[10px] font-bold text-white/80 uppercase tracking-widest drop-shadow-sm">{tag}</span>
+                          ))}
                       </div>
                       <h3 className="font-display font-bold tracking-tight text-xl sm:text-2xl text-[var(--color-text-primary)] leading-tight">
                         {project.title}
                       </h3>
-                      <p className="text-[var(--color-text-secondary)] text-sm line-clamp-2 mt-1">
+                      {/* <p className="text-[var(--color-text-secondary)] text-sm line-clamp-2 mt-1">
                         {project.description}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
 
